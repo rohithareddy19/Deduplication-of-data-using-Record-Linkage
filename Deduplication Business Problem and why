@@ -1,0 +1,18 @@
+What does GCI Release 1.0 mean to me?  How do I use it?
+
+Business problem:
+We have multiple PIMS, and we collect customer data in each one of them. We have customers that move around locations, and we have data for them in each of those locations. That data flows from the PIMS through different means into our Enterprise Data Warehouse (EDW) where we perform data aggregation on the back end. 
+
+Eventually we need to present that data through our website and our and our mobile app to our consumers. That presents a couple problems. One problem is how do we take all those records that we have across the different PIMS and consolidate them into one for a given customer? That's where global customer ID comes in. Is the idea of consolidating these many records about a customer down into a single record so that we have one view of a specific customer around our ecosystem. 
+
+Solution:
+The EDA team has produced an algorithm and an implementation the logic that collapses multiple customer records from multiple PIMS, locations, and systems into a single record. This is known as a Global Customer record. We also have the attributes that make up that customer in that single record. 
+
+After the Global Customer ID is updated, it flows to our transactional database, Alex.
+
+The EDA team also uses the EDW to provide traceability between the source systems and the single Global Customer record. 
+
+Notes
+•	The customer records still exist in the PIMS systems.
+•	When there is conflicting information for a customer in different systems, we have logic to select the right information based on system priority and/or the latest updates.
+•	While the EDW is used to in the GCI project, it has a larger scope. The EDW's overall purpose is focused on building systems used for data warehousing, reporting, data analysis, machine learning and artificial intelligence across the enterprise.
